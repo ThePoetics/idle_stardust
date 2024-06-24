@@ -15,7 +15,12 @@ func _singleton_check() -> void:
 ## Contains save/load data
 var data : Data
 
-## Singleton check and data initialization
+## Singleton check and data initialization from save
 func _enter_tree() -> void:
 	_singleton_check()
 	data = Data.new()
+	SaveSystem.load_data()
+
+## Triggered save on timer timeout
+func _on_save_timer_timeout():
+	SaveSystem.save_data()

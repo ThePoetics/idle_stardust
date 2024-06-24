@@ -10,7 +10,7 @@ class_name CompoUpgrade
 @export var button : Button
 
 ## Upgrade to display
-var upgrade : Up01ClickerUpgrade
+var upgrade : Upgrade
 
 ## Initialize the upgrade and connect the various signals
 func _ready() -> void:
