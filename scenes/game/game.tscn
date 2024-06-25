@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://47lc74g58ohd"]
+[gd_scene load_steps=5 format=3 uid="uid://47lc74g58ohd"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_rxhpf"]
 [ext_resource type="Script" path="res://scripts/handlers/handler_stardust.gd" id="2_5sen8"]
 [ext_resource type="PackedScene" uid="uid://c7venpcf4hg7h" path="res://scenes/user_interface/user_interface.tscn" id="2_7hn5b"]
+[ext_resource type="Script" path="res://scripts/handlers/handler_consciousness_core.gd" id="3_6h8ao"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_rxhpf")
@@ -11,6 +12,9 @@ script = ExtResource("1_rxhpf")
 
 [node name="Stardust" type="Node" parent="Handlers"]
 script = ExtResource("2_5sen8")
+
+[node name="ConsciousnessCore" type="Node" parent="Handlers"]
+script = ExtResource("3_6h8ao")
 
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 5.0

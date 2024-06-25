@@ -3,8 +3,8 @@ class_name SaveSystem
 
 ## Path of the save/load file
 const PATH : String = "user://save.tres"
-## Wether or not we should load the game
-const SHOULD_LOAD : bool = true
+## Wether or not we should load the game; defaults to false while coding the game
+const SHOULD_LOAD : bool = false
 
 ## Save Game.ref.data to PATH
 static func save_data() -> void:
