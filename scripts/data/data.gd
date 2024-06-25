@@ -9,3 +9,6 @@ extends Resource
 
 ## Upgrade 01 Clicker upgrade
 @export var up_01_level : int = 0
+
+## Contains CC upgrade data for save and load
+@export var cc_upgrades : DataCCUpgrades = DataCCUpgrades.new()

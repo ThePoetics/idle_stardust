@@ -106,6 +106,7 @@ script = ExtResource("2_nfdij")
 
 [node name="ConsciousnessCoreLabel" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Consciousness Cores : <value>"
 script = ExtResource("3_cri0i")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]

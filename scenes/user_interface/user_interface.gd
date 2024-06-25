@@ -22,9 +22,9 @@ func _on_prototype_generator_link_pressed() -> void:
 	navigation_requested.emit(Views.PROTOTYPE_GENERATOR)
 
 ## Triggered when the p_upgrades link is clicked
-func _on_prototype_upgrades_link_pressed():
+func _on_prototype_upgrades_link_pressed() -> void:
 	navigation_requested.emit(Views.PROTOTYPE_UPGRADES)
 
 ## Triggered when the c_core link is clicked
-func _on_consciousness_core_link_pressed():
+func _on_consciousness_core_link_pressed() -> void:
 	navigation_requested.emit(Views.CONSCIOUSNESS_CORE)

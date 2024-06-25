@@ -12,6 +12,9 @@ func _singleton_check() -> void:
 		return
 	queue_free()
 
+## Reference to the UI scene
+@export var scene_user_interface : PackedScene
+
 ## Contains save/load data
 var data : Data
 
@@ -21,6 +24,11 @@ func _enter_tree() -> void:
 	data = Data.new()
 	SaveSystem.load_data()
 
+##
+func _ready() -> void:
+	var node_user_interface : UserInterface = scene_user_interface.instantiate() as UserInterface
+	add_child(node_user_interface)
+
 ## Triggered save on timer timeout
-func _on_save_timer_timeout():
+func _on_save_timer_timeout() -> void:
 	SaveSystem.save_data()
