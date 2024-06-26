@@ -25,6 +25,7 @@ func stardust() -> int:
 ## Create a quantity of stardust
 func create_stardust(quantity : int) -> void:
 	Game.ref.data.stardust += quantity
+	Game.ref.data.universe.stardust += quantity
 	stardust_created.emit(quantity)
 
 ## Consume a quantity of stardust, or error
