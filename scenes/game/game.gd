@@ -24,7 +24,7 @@ func _enter_tree() -> void:
 	data = Data.new()
 	SaveSystem.load_data()
 
-##
+## On ready, instantiate the UI as a child object so it laods after all the data is ready
 func _ready() -> void:
 	var node_user_interface : UserInterface = scene_user_interface.instantiate() as UserInterface
 	add_child(node_user_interface)

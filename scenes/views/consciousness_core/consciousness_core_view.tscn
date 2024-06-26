@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://s0wfbjl6qw6b"]
+[gd_scene load_steps=3 format=3 uid="uid://s0wfbjl6qw6b"]
 
 [ext_resource type="Script" path="res://scenes/views/consciousness_core/consciousness_core_view.gd" id="1_eu82m"]
+[ext_resource type="PackedScene" uid="uid://33sxpk6bdmv4" path="res://scenes/prototypes/upgrades/components/compo_upgrade.tscn" id="2_up55t"]
 
-[node name="ConsciousnessCoreView" type="Control"]
+[node name="ConsciousnessCoreView" type="Control" node_paths=PackedStringArray("ccu_area")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eu82m")
+ccu_area = NodePath("MarginContainer/VBoxContainer/CCUpgrades")
+compo_upgrade_scene = ExtResource("2_up55t")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,4 +41,7 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CCUpgrades" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

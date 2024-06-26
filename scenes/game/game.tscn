@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://47lc74g58ohd"]
+[gd_scene load_steps=7 format=3 uid="uid://47lc74g58ohd"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_rxhpf"]
 [ext_resource type="Script" path="res://scripts/handlers/handler_stardust.gd" id="2_5sen8"]
 [ext_resource type="PackedScene" uid="uid://c7venpcf4hg7h" path="res://scenes/user_interface/user_interface.tscn" id="2_7hn5b"]
 [ext_resource type="Script" path="res://scripts/handlers/handler_consciousness_core.gd" id="3_6h8ao"]
 [ext_resource type="Script" path="res://scripts/handlers/handler_cc_upgrade.gd" id="4_epgm7"]
+[ext_resource type="Script" path="res://scripts/handlers/handler_stardust_generator.gd" id="6_xb77r"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_rxhpf")
@@ -21,8 +22,15 @@ script = ExtResource("3_6h8ao")
 [node name="CCupgrades" type="Node" parent="Handlers"]
 script = ExtResource("4_epgm7")
 
+[node name="StardustGenerator" type="Node" parent="Handlers" node_paths=PackedStringArray("timer")]
+script = ExtResource("6_xb77r")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Handlers/StardustGenerator"]
+
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
+[connection signal="timeout" from="Handlers/StardustGenerator/Timer" to="Handlers/StardustGenerator" method="_on_timer_timeout"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

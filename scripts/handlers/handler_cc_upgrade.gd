@@ -15,5 +15,11 @@ func _enter_tree() -> void:
 ## Emitted when an upgrade has leveled up
 signal upgrade_leveled_up(upgrade : Upgrade)
 
-
+## Reference to CC Upgrade 01
 @onready var u_01_stardust_generation : CCU01StardustGenerator = CCU01StardustGenerator.new()
+
+## Returns all CC Upgrades
+func get_all_upgrades() -> Array[Upgrade]:
+	return [
+		u_01_stardust_generation,
+	]
