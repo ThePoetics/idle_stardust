@@ -1,0 +1,40 @@
+extends Upgrade
+class_name CCU03UnlockNebulas
+## CCU03 : Unlocks the "Nebulas" feature. See Ep 11, "More CC Upgrades"
+
+## Maximum level of this upgrade
+var max_level : int = 1
+
+## Initialize values
+func _init() -> void:
+	level = Game.ref.data.cc_upgrades.u_03_unlock_nebulas_level
+	title = "Unlock Nebulas"
+	base_cost = 5
+	cost = 5
+
+## Returns the description of the upgrade
+func description() -> String:
+	var text : String = "[b]Effects :[/b] Unlock the ability to create Nebulas."
+	if level < max_level:
+		text += "\n[b]Cost :[/b] %s Consciousness Cores" %cost
+	return text
+
+## Returns whether the upgrade is affordable
+func can_afford() -> bool:
+	if level >= max_level:
+		return false
+	if Game.ref.data.consciousness_core >= cost:
+		return true
+	return false
+
+## Consumes CCs, increments upgrade level
+func level_up() -> void:
+	if level >= max_level:
+		return
+	var error : Error = HandlerConsciousnessCore.ref.consume_consciousness_core(cost)
+	if error:
+		return
+	level += 1
+	Game.ref.data.cc_upgrades.u_03_unlock_nebulas_level = true
+	leveled_up.emit()
+	HandlerCCUpgrades.ref.upgrade_leveled_up.emit(self)
