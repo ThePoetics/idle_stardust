@@ -6,10 +6,12 @@ var max_level : int = 1
 
 func _init() -> void:
 	level = Game.ref.data.cc_upgrades.u_01_stardust_generation_level
-	title = "Awaken the Universe"
 	base_cost = 1
 	calculate_cost()
-	
+
+## Returns title of the upgrade
+func title() -> String:
+	return "Awaken the Universe"
 
 ## Returns the description of the upgrade
 func description() -> String:
@@ -49,3 +51,7 @@ func level_up() -> void:
 ## Set unlock to true by default
 func is_unlocked() -> bool:
 	return true
+
+## Returns whether or not an upgrade is disabled
+func is_disabled() -> bool:
+	return Game.ref.data.cc_upgrades.u_01_stardust_generation_level

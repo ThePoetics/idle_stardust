@@ -58,7 +58,7 @@ stardust_per_second = NodePath("StardustPerSecond")
 [node name="Label" type="Label" parent="MainMargin/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Active Effects :"
+text = "Active Effects"
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMargin/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
@@ -81,7 +81,7 @@ layout_mode = 2
 [node name="StardustMilestones" type="Label" parent="MainMargin/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Progress Toward Next Consciousness Core :"
+text = "Progress Toward Next Consciousness Core"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MainMargin/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2

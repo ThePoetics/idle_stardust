@@ -9,12 +9,15 @@ signal upgrade_unlocked
 
 ## Level of the upgrade
 var level : int = -1
-## Name of the upgrade
-var title : String = "Title not defined"
 ## Base cost of the upgrade
 var base_cost : int = -1
 ## Current cost of the upgrade
 var cost : int = -1
+
+## Virtual class, must be overwritten[br]
+## Returns title of the upgrade
+func title() -> String:
+	return "Title not defined"
 
 ## Virtual class, must be overwritten[br]
 ## Returns the description of the upgrade
@@ -39,4 +42,9 @@ func level_up() -> void:
 ## Virtual class, must be overwritten[br]
 ## Returns whether or not an upgrade has been unlocked
 func is_unlocked() -> bool:
+	return false
+
+## Virtual class, must be overwritten[br]
+## Returns whether or not an upgrade is disabled
+func is_disabled() -> bool:
 	return false
