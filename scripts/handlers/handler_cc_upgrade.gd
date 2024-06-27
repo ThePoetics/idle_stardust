@@ -32,7 +32,7 @@ func get_all_upgrades() -> Array[Upgrade]:
 		u_03_unlock_nebulas,
 	]
 
-
+## Returns list of unlocked CC upgrades
 func get_all_unlocked_upgrades() -> Array[Upgrade]:
 	var list : Array[Upgrade] = []
 	for upgrade : Upgrade in get_all_upgrades():

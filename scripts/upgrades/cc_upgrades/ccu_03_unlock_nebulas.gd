@@ -12,7 +12,7 @@ func _init() -> void:
 	base_cost = 3
 	cost = 3
 	if not is_unlocked():
-		HandlerCCUpgrades.ref.u_01_stardust_boost.connect(_on_ccu01_level_up)
+		HandlerCCUpgrades.ref.u_01_stardust_generation.leveled_up.connect(_on_ccu01_level_up)
 
 ## Returns the description of the upgrade
 func description() -> String:

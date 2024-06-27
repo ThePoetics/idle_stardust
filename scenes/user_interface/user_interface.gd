@@ -7,11 +7,16 @@ enum Views {
 	PROTOTYPE_GENERATOR,
 	PROTOTYPE_CLICKER,
 	PROTOTYPE_UPGRADES,
+	UNIVERSE,
 	CONSCIOUSNESS_CORE,
 }
 
 ## Emit signal when navigation request is made, includes the View target
 signal navigation_requested(view : Views)
+
+## Display the Universe view by default
+func _ready() -> void:
+	navigation_requested.emit(Views.UNIVERSE)
 
 ## Triggered when the p_clicker link is clicked
 func _on_prototype_clicker_link_pressed() -> void:
@@ -28,3 +33,7 @@ func _on_prototype_upgrades_link_pressed() -> void:
 ## Triggered when the c_core link is clicked
 func _on_consciousness_core_link_pressed() -> void:
 	navigation_requested.emit(Views.CONSCIOUSNESS_CORE)
+
+## Triggered when the Universe view link is clicked
+func _on_universe_link_pressed() -> void:
+	navigation_requested.emit(Views.UNIVERSE)

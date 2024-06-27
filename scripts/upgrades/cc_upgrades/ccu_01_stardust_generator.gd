@@ -41,7 +41,9 @@ func level_up() -> void:
 		return
 	level += 1
 	Game.ref.data.cc_upgrades.u_01_stardust_generation_level = true
-	leveled_up.emit()
+	leveled_up.emit()	# Why is this erroring out? 
+	# Error calling from signal 'leveled_up' to callable: 'Node(handler_stardust_generator.gd)::watch_for_ccu01_level_up': 
+	# Method expected 1 arguments, but called with 0.
 	HandlerCCUpgrades.ref.upgrade_leveled_up.emit(self)
 
 ## Set unlock to true by default

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7venpcf4hg7h"]
+[gd_scene load_steps=9 format=3 uid="uid://c7venpcf4hg7h"]
 
 [ext_resource type="PackedScene" uid="uid://bhetsj8l20g0" path="res://scenes/prototypes/clicker/prototype_clicker.tscn" id="1_286bh"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface.gd" id="1_t8aue"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/user_interface/consciousness_core_label.gd" id="3_cri0i"]
 [ext_resource type="PackedScene" uid="uid://bes4hrj7cle0s" path="res://scenes/prototypes/upgrades/prototype_upgrades.tscn" id="5_805g5"]
 [ext_resource type="PackedScene" uid="uid://s0wfbjl6qw6b" path="res://scenes/views/consciousness_core/consciousness_core_view.tscn" id="6_0o167"]
+[ext_resource type="PackedScene" uid="uid://cv0lahn1uru3g" path="res://scenes/views/universe/universe_view.tscn" id="7_26mco"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -57,16 +58,23 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 
 [node name="PrototypeClickerLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Prototype Clicker"
 
 [node name="PrototypeGeneratorLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Prototype Generator"
 
 [node name="PrototypeUpgradesLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Prototype Upgrades"
+
+[node name="UniverseLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Universe Overview"
 
 [node name="ConsciousnessCoreLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -122,6 +130,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PrototypeClicker" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("1_286bh")]
+visible = false
 layout_mode = 1
 view = 1
 user_interface = NodePath("../../..")
@@ -140,10 +149,16 @@ user_interface = NodePath("../../..")
 [node name="ConsciousnessCoreView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("6_0o167")]
 visible = false
 layout_mode = 1
+view = 4
+user_interface = NodePath("../../..")
+
+[node name="UniverseView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("7_26mco")]
+layout_mode = 1
 view = 3
 user_interface = NodePath("../../..")
 
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeClickerLink" to="." method="_on_prototype_clicker_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeGeneratorLink" to="." method="_on_prototype_generator_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeUpgradesLink" to="." method="_on_prototype_upgrades_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/UniverseLink" to="." method="_on_universe_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/ConsciousnessCoreLink" to="." method="_on_consciousness_core_link_pressed"]

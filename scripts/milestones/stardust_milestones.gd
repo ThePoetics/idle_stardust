@@ -2,6 +2,11 @@ extends Node
 class_name MilestoneStardust
 ## Generates consciousness cores every X total stardust. See ep 12, "CC Production"
 
+## Emitted when the Milestone progress changes
+signal progressed
+## Emitted when a new Milestone is triggered
+signal new_milestone_created
+
 ## Amount of Stardust required to create the next CC
 var stardust_goal : int = -1
 ## Amount of stardust generated since the last milestone
@@ -25,6 +30,7 @@ func initialize_new_milestone(transferred_progress : int = 0) -> void:
 		stardust_goal = universe.consciousness_core * 8
 	stardust_progress = transferred_progress
 	universe.stardust_milestone_progress = stardust_progress
+	new_milestone_created.emit()
 
 ## Checks for milestone completion, updates data
 func check_for_completion() -> void:
@@ -35,10 +41,11 @@ func check_for_completion() -> void:
 	initialize_new_milestone(stardust_excess)
 	check_for_completion()
 
-## Triggered on stardust creation, progressest the milestone
+## Triggered on stardust creation, progresses the milestone
 func _on_stardust_created(quantity : int) -> void:
 	stardust_progress += quantity
 	universe.stardust_milestone_progress = stardust_progress
+	progressed.emit()
 	check_for_completion()
 
 

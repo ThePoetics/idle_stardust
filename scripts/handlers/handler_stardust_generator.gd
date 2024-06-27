@@ -2,6 +2,9 @@ extends Node
 class_name HandlerStardustGenerator
 ## Passively generates stardust. See Ep 10, "First CC Upgrade"
 
+## Emit when power is (re)calculated
+signal generator_power_calculated
+
 ## Reference to generator timer
 @export var timer : Timer
 
@@ -28,16 +31,16 @@ func _ready() -> void:
 	HandlerCCUpgrades.ref.u_01_stardust_generation.leveled_up.connect(watch_for_ccu01_level_up)
 
 ## Generate $power stardust on timer loop
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	HandlerStardust.ref.create_stardust(generator_power)
 
 ## Triggers generator power calculation on upgrade purchase
-func watch_for_upgrades_level_up(upgrade : Upgrade) -> void:
+func watch_for_upgrades_level_up(_upgrade : Upgrade) -> void:
 	calculate_generator_power()
 
 
 ## Watch for ccu01 purchase signal and, if triggered, start the timer and stop watching
-func watch_for_ccu01_level_up(upgrade) -> void:
+func watch_for_ccu01_level_up() -> void:
 	timer.start()
 	HandlerCCUpgrades.ref.u_01_stardust_generation.leveled_up.disconnect(watch_for_ccu01_level_up)
 
@@ -46,3 +49,4 @@ func calculate_generator_power() -> void:
 	var new_power : int = 1
 	new_power += Game.ref.data.cc_upgrades.u_02_stardust_boost_level
 	generator_power = new_power
+	generator_power_calculated.emit()
