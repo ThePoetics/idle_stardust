@@ -5,12 +5,14 @@ class_name CCU02StardustBoost
 ## Maximum upgrades
 var max_level : int = 5
 
-## Initialization values
+## Initialization values and handlers
 func _init() -> void:
 	level = Game.ref.data.cc_upgrades.u_02_stardust_boost_level
 	title = "Stardust Generator Efficiency"
 	base_cost = 1
 	cost = 1
+	if not is_unlocked():
+		HandlerCCUpgrades.ref.u_01_stardust_generation.leveled_up.connect(_on_ccu01_level_up)
 
 ## Returns the description of the upgrade
 func description() -> String:
@@ -39,3 +41,14 @@ func level_up() -> void:
 	Game.ref.data.cc_upgrades.u_02_stardust_boost_level = level
 	leveled_up.emit()
 	HandlerCCUpgrades.ref.upgrade_leveled_up.emit(self)
+
+## Set unlock state based on whether CCU01 has been purchased
+func is_unlocked() -> bool:
+	if Game.ref.data.cc_upgrades.u_01_stardust_generation_level:
+		return true
+	return false
+
+## Triggered when CCU01 is purchased, unlocks this upgrade
+func _on_ccu01_level_up() -> void:
+	HandlerCCUpgrades.ref.u_01_stardust_generation.leveled_up.disconnect(_on_ccu01_level_up)
+	HandlerCCUpgrades.ref.upgrade_unlocked.emit(self)

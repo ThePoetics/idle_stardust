@@ -43,4 +43,7 @@ func level_up() -> void:
 	Game.ref.data.cc_upgrades.u_01_stardust_generation_level = true
 	leveled_up.emit()
 	HandlerCCUpgrades.ref.upgrade_leveled_up.emit(self)
-	
+
+## Set unlock to true by default
+func is_unlocked() -> bool:
+	return true
