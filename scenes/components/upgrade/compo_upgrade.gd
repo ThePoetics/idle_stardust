@@ -16,8 +16,6 @@ var upgrade : Upgrade
 
 ## Initialize the upgrade and connect the various signals
 func _ready() -> void:
-	if not upgrade :
-		upgrade = Up01ClickerUpgrade.new()
 	update_components()
 	if not upgrade.is_disabled():
 		HandlerStardust.ref.stardust_created.connect(update_button)
