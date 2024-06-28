@@ -114,7 +114,7 @@ size_flags_horizontal = 3
 [node name="ConsciousnessCoreView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("6_0o167")]
 visible = false
 layout_mode = 1
-view = 1
+view = 4
 user_interface = NodePath("../../..")
 
 [node name="UniverseView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("7_26mco")]
