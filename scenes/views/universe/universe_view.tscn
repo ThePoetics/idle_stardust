@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv0lahn1uru3g"]
 
 [ext_resource type="Script" path="res://scenes/views/universe/universe_view.gd" id="1_tyhb7"]
-[ext_resource type="Script" path="res://scenes/views/universe/compo_active_effects.gd" id="2_p7hip"]
-[ext_resource type="PackedScene" uid="uid://pbopnw86k8fp" path="res://scenes/components/compo_progress_bar.tscn" id="3_t8tnq"]
+[ext_resource type="Script" path="res://scenes/components/active_effects/compo_active_effects.gd" id="2_p7hip"]
+[ext_resource type="PackedScene" uid="uid://pbopnw86k8fp" path="res://scenes/components/stardust_milestone_progress_bar/compo_progress_bar.tscn" id="3_t8tnq"]
 
 [node name="UniverseView" type="Control" node_paths=PackedStringArray("intro_text", "main_content")]
 layout_mode = 3
