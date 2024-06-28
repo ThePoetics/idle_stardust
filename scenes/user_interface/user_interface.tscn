@@ -114,12 +114,11 @@ size_flags_horizontal = 3
 [node name="ConsciousnessCoreView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("6_0o167")]
 visible = false
 layout_mode = 1
-view = 4
+view = 1
 user_interface = NodePath("../../..")
 
 [node name="UniverseView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("7_26mco")]
 layout_mode = 1
-view = 3
 user_interface = NodePath("../../..")
 
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/UniverseLink" to="." method="_on_universe_link_pressed"]
