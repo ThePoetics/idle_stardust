@@ -12,3 +12,6 @@ extends Resource
 
 ## Contains Universe data for save/load
 @export var universe : DataUniverse = DataUniverse.new()
+
+## Contains Nebula data for save/load
+@export var nebulas : Array[DataNebula] = []

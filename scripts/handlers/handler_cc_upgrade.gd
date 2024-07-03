@@ -1,5 +1,5 @@
-extends Node
 class_name HandlerCCUpgrades
+extends Node
 ## Manages CC upgrades. See Episode 10, "First CC Upgrade"
 
 ## Singleton reference
